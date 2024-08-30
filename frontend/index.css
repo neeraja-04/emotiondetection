@@ -1,0 +1,42 @@
+.navbar-nav .nav-item {
+    margin-right: 15px; /* Adjust the value to increase or decrease the gap */
+}
+
+.navbar-nav .nav-item:last-child {
+    margin-right: 0; /* Optional: Remove margin from the last item if needed */
+}
+
+.title
+{
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #4d8b83, #d7e1e4); /* Example gradient */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+body {
+    background: url('https://images.unsplash.com/photo-1521747116042-5a810fda9664') no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+.about-section {
+    width : 100%;
+    height: 100vh;
+    padding: 50px 0;
+    text-align: center;
+    color: white;
+}
+
+.contact-section {
+    width : 100%;
+    height: fit-content;
+    padding: 50px 0;
+    text-align: center;
+    background-color: white;
+}
