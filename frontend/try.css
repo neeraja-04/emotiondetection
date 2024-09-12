@@ -1,0 +1,82 @@
+/* try.css */
+
+.navb .navbar-nav .nav-item {
+    margin-right: 15px; /* Adjust the value to increase or decrease the gap */
+}
+
+.navb .navbar-nav .nav-item:last-child {
+    margin-right: 0; /* Optional: Remove margin from the last item if needed */
+}
+
+.navb .navbar-nav .nav-item {
+    margin: 0 10px; 
+}
+
+
+.navb .navbar-nav .nav-link {
+    color: #000; 
+    font-size: 18px; 
+    position: relative; 
+    text-decoration: none; 
+}
+
+.navb .navbar-nav .nav-link::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #CDC2A5; 
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: width 0.5s; 
+}
+
+.navb .navbar-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+.navb {
+    background-color: #654520; /* Choose your preferred background color */
+}
+.navbar {
+    background-color: inherit !important; /* Ensures navbar uses the navb background color */
+}
+
+body {
+    background: linear-gradient(to right, #CDC2A5, #E1D7C6);
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    min-height: 80vh; /* Adjust this value as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.row {
+    width: 100%; 
+}
+
+.card {
+    margin: auto;
+    width: 100%;
+}
+
+.card-body{
+    background: rgba(245, 245, 245, 0.5);
+}
+
+.card-header{
+    background: rgba(96, 102, 118, 0.5); 
+}
+
+.text-center {
+    text-align: center;
+    margin-bottom: 5%;
+}
+
