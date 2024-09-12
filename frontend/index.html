@@ -8,47 +8,126 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
+    <div class="navb">
+        <!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#"><b>EmoVision</b></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
+              <ul class="navbar-nav ml-auto">
                 <li class="nav-item active" id="home">
                   <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item active" id="about">
+                  <a class="nav-link" href="#about-section">About <span class="sr-only">(current)</span></a>
+                </li>
                 <li class="nav-item active" id="usecase">
-                    <a class="nav-link" href="#">Usecase <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="usecase.html">UseCase <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active" id="try">
-                    <a class="nav-link" href="#">Try <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="try.html">Try <span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item active" id="contact">
+                  <a class="nav-link" href="#contact-section">Contact <span class="sr-only">(current)</span></a>
+              </li>
               </ul>
             </div>
           </nav>
     </div>
     <div class="content">
       <section class="title-section">
-        <h1 class="title">Swasa meeda Dyasa 🧘</h1>
+        <h1 class="title">EmoVision</h1>
+        <p class="caption">Unlock the Power of Emotions with AI-Driven Insights</p>
+        <a href="try.html" class="btn btn-primary">Try Now</a>
       </section>
 
-      <section class="about-section">
-          <h2>About Emotion Detection</h2>
-          <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras luctus, libero eu luctus commodo, velit risus placerat nisi, et congue neque felis in mi.
-          </p>
-          <p>
-              Nullam auctor sit amet nulla nec venenatis. Integer at metus sed velit eleifend commodo.
-          </p>
-      </section>
-      <section class="contact-section">
-          <h2>Contact Information</h2>
-          <p>Email: example@example.com</p>
-          <p>Phone: +123 456 7890</p>
-          <p>Address: 123 Street Name, City, Country</p>
-      </section>
-    </div>
+      <section id="about-section" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="about_img1.jpeg" alt="Emotion Detection" class="img-fluid1">
+                </div>
+                <div class="col-md-6">
+                    <h1>About Emotion Detection</h1>
+                    <div class="about">
+                    <p>
+                        Understanding emotions is crucial in many fields, including healthcare, customer service, and human-computer interaction. Our project aims to bridge the gap between technology and emotional intelligence, making interactions more natural and empathetic.
+                    </p>
+                    <p>
+                        Our system is built using advanced deep learning techniques, with a focus on accuracy and reliability. We leverage tools like TensorFlow, Keras, and OpenCV to create a robust and efficient model that can analyze emotions with precision.
+                    </p>
+                    <p>
+                        The final model is capable of accurately detecting and classifying emotions from facial expressions, with potential applications in various fields. The project demonstrates the effectiveness of deep learning in emotion detection and lays the groundwork for further enhancements, such as real-time video emotion detection.
+                    </p>
+                    </div>
+                </div>
+            </div><br><br><br>
+            <div class="row">
+              <div class="col-md-6">
+                <h1>Use Cases</h1>
+                <div class="usecase">
+                  <p>
+                    <b><u>Mental Health Monitoring:</u></b><br><b>Application:</b>Emotion detection can be used in mental health apps to monitor patients' emotional states. By analyzing facial expressions, these apps can detect signs of anxiety, depression, or stress, providing real-time feedback to users and healthcare professionals.
+                  <b><a href="usecase.html">Have a look at it.</a></b></p><br>
+                  <p>
+                    <b><u>Security and Surveillance:</u></b><br><b>Application:</b>In security systems, emotion detection can be used to identify suspicious behavior. For instance, a surveillance system in an airport or public space could detect individuals displaying signs of fear or stress, potentially preventing criminal activities.<b><a href="usecase.html">Have a look at it.</a></b></p><br>
+                  <p>
+                    <b><u>Customer Experience:</u></b><br><b>Application:</b>
+                    Emotion detection using facial expressions can significantly enhance customer experience by analyzing a customer's emotions in real-time during interactions. By identifying feelings like happiness, frustration, or confusion, businesses can personalize their approach, address issues quickly, and improve service quality. This leads to more empathetic and satisfying customer interactions, ultimately boosting loyalty and satisfaction.<b><a href="usecase.html">Have a look at it.</a></b></p>
+                  </div>
+                </div>
+              <div class="col-md-6">
+                <img src="about_img2.png" alt="Emotion Detection" class="img-fluid2">
+              </div>
+          </div>
+        </div>
+    </section>
+    
+    <section id="contact-section" class="contact-section">
+      <div class="container">
+        <h1>Our Team</h1><br>
+        <div class="row">
+            <div class="col-3">
+                <h4>Member-01</h4>
+                <p>G.Neeraja</p>
+                <p>Email: 21131a0571@gvpce.ac.in</p>
+                <p>Phone: +91 6302915529</p>
+            </div>
+            <div class="col-3">
+                <h4>Member-02</h4>
+                <p>I.Sri Surya Varma</p>
+                <p>Email: 21131a0575@gvpce.ac.in</p>
+                <p>Phone: +91 8919081688</p>
+            </div>
+            <div class="col-3">
+                <h4>Member-03</h4>
+                <p>I.Kavya Sree</p>
+                <p>Email: 21131a0576@gvpce.ac.in</p>
+                <p>Phone: +91 8790260138</p>
+            </div>
+            <div class="col-3">
+                <h4>Member-04</h4>
+                <p>K.Manmitha</p>
+                <p>Email: 21131a0590@gvpce.ac.in</p>
+                <p>Phone: +91 7816091244</p>
+            </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    window.addEventListener('scroll', function() {
+        var navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) { // Adjust this value based on when you want the change to happen
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+  </script>
+  
+    
 </body>
 </html>
