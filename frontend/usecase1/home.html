@@ -7,6 +7,7 @@
     <title>UseCase1</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
 </head>
 <body>
     <div class="container">
@@ -34,25 +35,35 @@
         <div class="row justify-content-center mt-5">
             <div class="col-md-4 mb-4">
                 <div class="interactive-box" id="upload-photo">
-                    <h3>Upload Photo</h3>
+                    <h3><i class="fas fa-image"></i> Upload Photo</h3>
+                    <p class="interactive-box-text">Upload a photo to see how the system processes and analyzes it. This feature helps you understand visual data processing.</p>
                     <input type="file" accept="image/*" style="display: none;" id="photo-upload-input">
                     <button onclick="document.getElementById('photo-upload-input').click();">Select Photo</button>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
                 <div class="interactive-box" id="upload-video">
-                    <h3>Upload Video</h3>
+                    <h3><i class="fas fa-video"></i> Upload Video</h3>
+                    <p class="interactive-box-text">Upload a video to explore how the system analyzes moving images and provides feedback.</p>
                     <input type="file" accept="video/*" style="display: none;" id="video-upload-input">
                     <button onclick="document.getElementById('video-upload-input').click();">Select Video</button>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
                 <div class="interactive-box" id="access-webcam">
-                    <h3>Access Webcam</h3>
+                    <h3><i class="fas fa-camera"></i> Access Webcam</h3>
+                    <p class="interactive-box-text">Use your webcam for real-time interaction and analysis. Get instant feedback on live data.</p>
                     <button>Open Webcam</button>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="fixed-bottom d-flex justify-content-end p-3">
+        <button onclick="history.back()" class="btn rounded-circle" style="background-color: #28a745; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 4 L5 8 L9 12" />
+            </svg>
+        </button>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
