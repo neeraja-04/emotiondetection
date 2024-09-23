@@ -1,53 +1,42 @@
-/* Adjust the background color of the navbar */
-.navb {
-    background-color: #2c3e50; /* Background color of the navbar */
+.navb .navbar-nav .nav-item {
+    margin-right: 15px;
 }
 
-.navbar-brand {
-    padding-left: 0; /* Remove default padding */
-    margin-left: 20px; /* Move EmoVision to the left */
-    color: white;
-}
-
-/* Navbar link styles */
 .navb .navbar-nav .nav-link {
-    color: white !important; /* Text color set to black */
-    font-size: 18px; /* Adjust the font size */
-    margin-right: 15px; /* Space between each item */
-    text-transform: none; /* Ensures text is not capitalized */
-    text-decoration: none; /* Remove underline */
+    color: white !important;
+    font-size: 18px;
     position: relative;
-}
-
-/* Hover effect for navbar links */
-.navb .navbar-nav .nav-link:hover {
-    color: black; /* Maintain black color on hover */
+    text-decoration: none;
 }
 
 .navb .navbar-nav .nav-link::after {
     content: '';
     width: 0;
     height: 3px;
-    background: white; /* Underline color */
+    background: white;
     position: absolute;
     left: 0;
     bottom: -6px;
     transition: width 0.5s;
 }
 
-/* Hover underline animation */
+.navbar-brand {
+    color: white !important;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
 .navb .navbar-nav .nav-link:hover::after {
     width: 100%;
 }
 
-/* Right alignment for the navbar items */
-.navbar-nav {
-    margin-left: auto; /* This pushes items to the right */
+.navb {
+    background-color: #2c3e50; /* Semi-transparent black with lower alpha */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Remove margin from last item */
-.navb .navbar-nav .nav-item:last-child {
-    margin-right: 0;
+.navbar {
+    background-color: inherit !important;
 }
 
 
