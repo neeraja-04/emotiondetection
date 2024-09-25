@@ -54,7 +54,41 @@ html, body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.resultcont {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    max-height: fit-content;
+    padding: 2%;
+    border: 1px solid #2c3e50; /* Adjusted border style */
+    background-color: #1a252f;
+    color: aliceblue;
+    align-items: center; /* Center align items */
+}
 
+.resultbox {
+    display: flex; /* Use Flexbox for horizontal alignment */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    gap: 10px; /* Add a small gap between the items */
+    width: 100%; /* Ensure the result box takes full width */
+}
+
+.resultcont img,
+.resultcont video {
+    width: 45%; /* Set both image and video to take up 45% of the container width */
+    height: auto; /* Maintain aspect ratio */
+    min-height: 200px;
+    max-height: 300px; /* Optional: Set a maximum height */
+}
+
+ .resultbox{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    gap: 3%;
+ }
 .container {
     min-height: 80vh;
     display: flex;
