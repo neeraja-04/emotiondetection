@@ -194,12 +194,12 @@ def predict_video():
 
 def video_stream():
     video_capture = cv2.VideoCapture(0)  # Capture from the default webcam
-
+    video_capture.set(cv2.CAP_PROP_FPS, 30)
     while True:
         ret, frame = video_capture.read()
         if not ret:
             break
-
+        
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         faces = facecasc.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=10)
 

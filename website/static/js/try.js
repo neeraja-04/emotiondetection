@@ -94,10 +94,12 @@ const video = document.getElementById('web-cam');
 function startVideoStream() {
     video.src = '/video_feed';
     videoStream = true; 
+    video.style.display = 'block';
 }
 function stopVideoStream() {
     videoStream = false;  // Stop fetching frames
     video.src = '';
+    video.style.display = 'none';  
 }
 
 
@@ -106,6 +108,15 @@ document.addEventListener('keydown', function(event) {
         stopVideoStream();
     }
 });
-document.getElementById('webcam').onsubmit() = async function(){
+document.getElementById('webcam').addEventListener('click',function(){
     startVideoStream();
-};
+    location.href="#web-cam";
+});
+
+document.getElementById('webcaminfo').addEventListener('click',function(){
+    alert("It will initally take some time to load the webcam, please wait for a few seconds.\nIf asked for permission, please allow the browser to access the webcam.\nPress 'Q' to stop the webcam.");    
+});
+
+document.getElementById('videoinfo').addEventListener('click',function(){
+    alert("If the video is greater than 20 seconds or 2MB, it will take more time to process. For better results, please upload smaller videos.");
+});

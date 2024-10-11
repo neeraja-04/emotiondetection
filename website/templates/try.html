@@ -74,6 +74,7 @@
                             <button type="submit" class="btn btn-primary">Upload Video</button><br><br>
                             <a id="viewvideoResult" href="#" class="btn btn-primary" style="display:none;">View Result</a>
                         </form>
+                        <button class="info btn btn-outline-info" id="videoinfo">info</button>
                     </div>
                 </div>
             </div>
@@ -88,8 +89,9 @@
                         <form id="webcam">
                             <div class="form-group">
                             </div>
-                            <button type="submit" class="btn btn-primary" id="webcam-view">Use WebCam</button>
+                            <button type="button" class="btn btn-primary" id="webcam-view">Use WebCam</button>
                         </form>
+                        <button class="info btn btn-outline-info" id="webcaminfo">info</button>
                     </div>
                 </div>
             </div>
@@ -98,13 +100,14 @@
     <div class="resultcont" id="resultcont">
         <h2>Result Box</h2>
         <div class="resultbox">
-            <div class="web-cam">
+            <div class="webCam">
                 <img id="web-cam" width="640" height="480" autoplay>
             </div>
             <div class='resbox' id="imageResult"></div>
             <div class='resbox' id="videoResult"></div>
         </div>
     </div>
+    <button class="floating-btn" onclick="location.href='#'">try</button> 
     <script src="{{ url_for('static', filename='js/try.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
