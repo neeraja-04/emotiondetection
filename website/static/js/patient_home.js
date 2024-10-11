@@ -1,5 +1,4 @@
-// for image upload and prediction
-
+//for image
 document.getElementById('uploadImg').onsubmit = async function(event) {
     console.log("hi");
     event.preventDefault();
@@ -52,7 +51,8 @@ document.getElementById('uploadImg').onsubmit = async function(event) {
     }
 };
 
-// for video upload and prediction
+
+//for video
 
 document.getElementById('uploadVideo').onsubmit = async function(event) {
     event.preventDefault();
@@ -86,15 +86,14 @@ document.getElementById('uploadVideo').onsubmit = async function(event) {
         }
     } catch (error) {
         console.error('Error:', error);
-        document.getElementById('videoResult').innerHTML = `<p>There was an error processing your request.</p>`;
+        document.getElementById('videoResult').innerHTML = `<p>There was an error processing your request.${error}</p>`;
         document.getElementById('viewvideoResult').href="#videoResult";
         document.getElementById('viewvideoResult').innerHTML = 'Error';
         document.getElementById('videoResult').style.display = 'block';
     }
 };
 
-// for webcam prediction
-
+// for webcam
 const video = document.getElementById('web-cam');
 function startVideoStream() {
     video.src = '/has/video_feed';
@@ -123,7 +122,6 @@ document.getElementById('webcam').addEventListener('click',function(){
 document.getElementById('webcaminfo').addEventListener('click',function(){
     alert("It will initally take some time to load the webcam, please wait for a few seconds.\nIf asked for permission, please allow the browser to access the webcam.\nPress 'Q' to stop the webcam.");    
 });
-
 document.getElementById('videoinfo').addEventListener('click',function(){
     alert("If the video is greater than 20 seconds or 2MB, it will take more time to process. For better results, please upload smaller videos.");
 });

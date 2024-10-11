@@ -1,6 +1,6 @@
 const video = document.getElementById('web-cam');
 function startVideoStream() {
-    video.src = '/haf/video_feed';
+    video.src = '/has/video_feed';
     videoStream = true; 
     video.style.display = 'block';
 }

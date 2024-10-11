@@ -102,7 +102,7 @@ def preprocess_frame(face_roi):
 def predict_video():
     # Get the video file from the request
     global count 
-    count = (count + 1)%100
+    count = (count + 1)%20
     file = request.files['video']
     video_path = './'+str(count)+'temp_video.mp4'
     file.save(video_path)
@@ -124,14 +124,6 @@ def predict_video():
         ret, frame = cap.read()
         if not ret:
             break
-        # for file in os.listdir('.'):
-        #     if file.endswith('output_video.mp4'):
-        #         try:
-        #             os.remove(file)
-        #             print(f"Deleted file: {file}")
-        #         except Exception as e:
-        #             print(f"Error deleting file {file}: {e}")
-        # Detect faces in the frame
         faces = facecasc.detectMultiScale(frame, scaleFactor=1.3, minNeighbors=10)
 
         for (x, y, w, h) in faces:

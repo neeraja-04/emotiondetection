@@ -1,10 +1,8 @@
 from flask import Flask, render_template
 from has import has
-from haf import haf
 
 app = Flask(__name__,static_folder='static')
 app.register_blueprint(has,url_prefix='/has')
-app.register_blueprint(haf,url_prefix='/haf')
 
 @app.route('/')
 def home():

@@ -36,24 +36,39 @@
             <div class="col-md-4 mb-4">
                 <div class="interactive-box" id="upload-photo">
                     <h3><i class="fas fa-image"></i> Upload Photo</h3>
-                    <p class="interactive-box-text">Upload a photo to see how the system processes and analyzes it. This feature helps you understand visual data processing.</p>
-                    <input type="file" accept="image/*" style="display: none;" id="photo-upload-input">
-                    <button onclick="document.getElementById('photo-upload-input').click();">Select Photo</button>
+                    <form id="uploadImg" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="imageUpload">Select Image</label>
+                            <input type="file" class="form-control-file" id="imageInput" name="image" accept="image/*" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload Image</button><br><br>
+                        <a id="viewimgResult" href="#" class="btn btn-primary" style="display:none;">View Result</a>
+                    </form>  
                 </div>
             </div>
             <div class="col-md-4 mb-4">
                 <div class="interactive-box" id="upload-video">
                     <h3><i class="fas fa-video"></i> Upload Video</h3>
-                    <p class="interactive-box-text">Upload a video to explore how the system analyzes moving images and provides feedback.</p>
-                    <input type="file" accept="video/*" style="display: none;" id="video-upload-input">
-                    <button onclick="document.getElementById('video-upload-input').click();">Select Video</button>
+                    <form id="uploadVideo" enctype="multipart/form-data">
+                        <div class="form-group">    
+                            <input type="file" class="form-control-file" id="videoInput" name="video" accept="video/*" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload Video</button><br><br>
+                        <a id="viewvideoResult" href="#" class="btn btn-primary" style="display:none;">View Result</a>
+                    </form>
+                    <button class="btn btn-outline-info" id="videoinfo">info</button>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
                 <div class="interactive-box" id="access-webcam">
                     <h3><i class="fas fa-camera"></i> Access Webcam</h3>
                     <p class="interactive-box-text">Use your webcam for real-time interaction and analysis. Get instant feedback on live data.</p>
-                    <button>Open Webcam</button>
+                    <form id="webcam">
+                        <div class="form-group">
+                        </div>
+                        <button type="button" class="btn btn-primary" id="webcam-view">Use WebCam</button>
+                    </form>
+                    <button class="info btn btn-outline-info" id="webcaminfo">info</button>
                 </div>
             </div>
         </div>
@@ -65,7 +80,25 @@
             </svg>
         </button>
     </div>
-
+    <div class="fixed-top d-flex justify-content-end p-3">
+        <button onclick="location.href='/usecase'" class="btn rounded-circle" style="background-color: #28a745; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 3 L3 8 L5 8 L5 13 L11 13 L11 8 L13 8 L8 3" />
+            </svg>
+        </button>
+    </div>
+    <div class="resultcont" id="resultcont">
+        <h2>Result Box</h2>
+        <div class="resultbox">
+            <div class="webCam" id="webCam">
+                <img id="web-cam" width="640" height="480" autoplay>
+                <p>Press q to stop!.</p>
+            </div>
+            <div class='resbox' id="imageResult"></div>
+            <div class='resbox' id="videoResult"></div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/patient_home.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -88,8 +88,12 @@ html, body {
     border: whitesmoke 1px solid;
     margin: 3%;
     padding: 3%;
+    display: none;
 }
 
+.webCam{
+    display:none;
+}
 .container {
     min-height: 80vh;
     display: flex;
