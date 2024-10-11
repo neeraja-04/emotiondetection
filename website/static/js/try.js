@@ -11,7 +11,7 @@ document.getElementById('uploadImg').onsubmit = async function(event) {
     formData.append('image', imageFile);
 
     try {
-        const response = await fetch('/predict', {
+        const response = await fetch('/has/predict', {
             method: 'POST',
             body: formData
         });
@@ -63,7 +63,7 @@ document.getElementById('uploadVideo').onsubmit = async function(event) {
     formData.append('video', videoFile);
 
     try {
-        const response = await fetch('/predict-video', {
+        const response = await fetch('/has/predict-video', {
             method: 'POST',
             body: formData
         });
@@ -92,7 +92,7 @@ document.getElementById('uploadVideo').onsubmit = async function(event) {
 
 const video = document.getElementById('web-cam');
 function startVideoStream() {
-    video.src = '/video_feed';
+    video.src = '/has/video_feed';
     videoStream = true; 
     video.style.display = 'block';
 }
