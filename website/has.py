@@ -124,7 +124,13 @@ def predict_video():
         ret, frame = cap.read()
         if not ret:
             break
-        
+        # for file in os.listdir('.'):
+        #     if file.endswith('output_video.mp4'):
+        #         try:
+        #             os.remove(file)
+        #             print(f"Deleted file: {file}")
+        #         except Exception as e:
+        #             print(f"Error deleting file {file}: {e}")
         # Detect faces in the frame
         faces = facecasc.detectMultiScale(frame, scaleFactor=1.3, minNeighbors=10)
 
@@ -198,16 +204,3 @@ def video_stream():
 @has.route('/video_feed')
 def video_feed():
     return Response(video_stream(), mimetype='multipart/x-mixed-replace; boundary=frame')
-
-
-@has.before_request
-def before_specific_request():
-    if request.endpoint == 'predict_video':
-        # Delete all output video files
-        for file in os.listdir('.'):
-            if file.endswith('output_video.mp4'):
-                try:
-                    os.remove(file)
-                    print(f"Deleted file: {file}")
-                except Exception as e:
-                    print(f"Error deleting file {file}: {e}")
