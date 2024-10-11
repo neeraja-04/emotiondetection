@@ -192,6 +192,45 @@ def predict_video():
     # Send the output video file
     return send_file(output_path, as_attachment=True, mimetype='video/mp4')
 
+def video_stream():
+    video_capture = cv2.VideoCapture(0)  # Capture from the default webcam
+
+    while True:
+        ret, frame = video_capture.read()
+        if not ret:
+            break
+
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        faces = facecasc.detectMultiScale(gray, scaleFactor=1.3, minNeighbors=10)
+
+        for (x, y, w, h) in faces:
+            cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+            roi_gray = gray[y:y+h, x:x+w]
+            cropped_img = np.expand_dims(np.expand_dims(cv2.resize(roi_gray, (48, 48)), -1), 0)
+
+            # Predict the emotion
+            prediction = model.predict(cropped_img)
+            maxindex = int(np.argmax(prediction))
+
+            # Display the emotion label on the frame
+            cv2.putText(frame, f'{emotion_dict[maxindex]}', (x+10, y-10),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+
+        # Encode the frame for streaming
+        ret, buffer = cv2.imencode('.jpg', frame)
+        frame = buffer.tobytes()
+
+        # Return the frame in a format suitable for streaming
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+    video_capture.release()
+
+@app.route('/video_feed')
+def video_feed():
+    return Response(video_stream(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
 @app.before_request
 def before_specific_request():
     if request.endpoint == 'predict_video':
