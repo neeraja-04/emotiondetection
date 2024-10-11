@@ -1,11 +1,12 @@
-from flask import Flask, request, jsonify, render_template, send_file,Response
+from flask import Flask, request, jsonify, render_template, send_file,Response,after_this_request
 import numpy as np
 import cv2
 import base64
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
-
-
+import os
+import time
+count = 0
 app = Flask(__name__,static_folder='static')
 
 model = Sequential()
@@ -131,8 +132,10 @@ def preprocess_frame(face_roi):
 @app.route('/predict-video', methods=['POST'])
 def predict_video():
     # Get the video file from the request
+    global count 
+    count = (count + 1)%100
     file = request.files['video']
-    video_path = './temp_video.mp4'
+    video_path = './'+str(count)+'temp_video.mp4'
     file.save(video_path)
 
     # Open the video file
@@ -142,8 +145,7 @@ def predict_video():
         return jsonify({'error': 'Error opening video file.'}), 400
 
     # Prepare the output video writer with the same dimensions and FPS
-    output_path = './output_video.mp4'
-    fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # Codec
+    output_path = './'+str(count)+'output_video.mp4'
     fps = cap.get(cv2.CAP_PROP_FPS)  # Get original video FPS
     frame_width = int(cap.get(3))  # Frame width
     frame_height = int(cap.get(4))  # Frame height
@@ -177,9 +179,30 @@ def predict_video():
     # Release video resources
     cap.release()
     out.release()
-    
-    # Return the processed video
-    return send_file(output_path, mimetype='video/mp4'),200
+    @after_this_request
+    def cleanup(response):
+        try:
+            if os.path.exists(video_path):
+                os.remove(video_path)
+                print(f"Deleted file: {video_path}")
+        except Exception as e:
+            print(f"Error deleting files: {e}")
+        return response
+
+    # Send the output video file
+    return send_file(output_path, as_attachment=True, mimetype='video/mp4')
+
+@app.before_request
+def before_specific_request():
+    if request.endpoint == 'predict_video':
+        # Delete all output video files
+        for file in os.listdir('.'):
+            if file.endswith('output_video.mp4'):
+                try:
+                    os.remove(file)
+                    print(f"Deleted file: {file}")
+                except Exception as e:
+                    print(f"Error deleting file {file}: {e}")
 
 if __name__ == '__main__':
     app.run(debug=True)
