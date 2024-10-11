@@ -64,31 +64,32 @@ html, body {
     background-color: #1a252f;
     color: aliceblue;
     align-items: center; /* Center align items */
+    gap: 10px; /* Add a small gap between items */
 }
 
 .resultbox {
     display: flex; /* Use Flexbox for horizontal alignment */
+    flex-direction: column;
     justify-content: center; /* Center items horizontally */
     align-items: center; /* Center items vertically */
     gap: 10px; /* Add a small gap between the items */
     width: 100%; /* Ensure the result box takes full width */
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .resultcont img,
 .resultcont video {
-    width: 45%; /* Set both image and video to take up 45% of the container width */
-    height: auto; /* Maintain aspect ratio */
-    min-height: 200px;
-    max-height: 300px; /* Optional: Set a maximum height */
+    max-height: 80vh; /* Ensure media takes full height */
+    border-radius: 10px; /* Add a slight border radius */
 }
 
- .resultbox{
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    gap: 3%;
- }
+.resbox{
+    border: whitesmoke 1px solid;
+    margin: 3%;
+    padding: 3%;
+}
+
 .container {
     min-height: 80vh;
     display: flex;
