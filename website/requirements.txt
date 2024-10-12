@@ -47,6 +47,7 @@ fsspec==2023.12.2
 gast==0.6.0
 google-pasta==0.2.0
 grpcio==1.65.4
+gunicorn==23.0.0
 h5py==3.11.0
 haf==2.9.7
 hafapiserver==0.0.9
@@ -145,8 +146,8 @@ python-dateutil==2.8.2
 python-json-logger==2.0.7
 pytz==2023.3.post1
 #pywin32==307
-pywin32-ctypes==0.2.3
-pywinpty==2.0.11
+#pywin32-ctypes==0.2.3
+#pywinpty==2.0.11
 PyYAML==6.0.1
 pyzmq==25.1.1
 qtconsole==5.4.4
